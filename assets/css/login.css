@@ -1,0 +1,109 @@
+/* Google Fonts - Poppins e Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+body {
+  font-family: 'Poppins', 'Arial', sans-serif;
+  background: url('../img/back.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.background-image {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Ensure the card grows with content */
+  min-height: 400px; /* Adjust this value as needed */
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 2rem;
+  flex: 1; /* Allows the card body to expand */
+}
+
+.form-control {
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .card-body {
+    padding: 1rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .card-header {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .btn-primary {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for fields appearing */
+.field {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.field.visible {
+  opacity: 1;
+}
+.register-card {
+  min-height: 700px; /* Ajuste conforme necessário */
+}

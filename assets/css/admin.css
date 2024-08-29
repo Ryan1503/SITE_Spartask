@@ -1,0 +1,141 @@
+/* Sidebar */
+.spartask-sidebar {
+  background-color: #343a40;
+  color: white;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000; /* Garantir que a sidebar esteja acima de outros elementos */
+}
+
+/* Links da sidebar */
+.spartask-sidebar .admin-link {
+  color: #ffffff;
+  font-size: 1.1em;
+  padding: 15px; /* Aumenta a área de clique */
+  text-decoration: none;
+  display: block; /* Ocupa toda a largura do item */
+  margin-bottom: 10px;
+}
+
+.spartask-sidebar .admin-link:hover {
+  background-color: #495057;
+}
+
+.spartask-sidebar .admin-link.active {
+  background-color: #007bff;
+}
+
+.spartask-sidebar i {
+  margin-right: 10px;
+}
+
+/* Informações do Usuário */
+.user-info {
+  margin-top: auto; /* Move o bloco de informações do usuário para a parte inferior */
+  border-top: 1px solid #495057; /* Linha separadora */
+  padding-top: 20px; /* Espaço acima da seção */
+}
+
+.user-info .admin-link {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  padding: 10px;
+}
+
+.user-info .admin-link:hover {
+  background-color: #495057;
+}
+
+.user-info i {
+  margin-right: 10px;
+}
+
+.user-info span {
+  font-weight: bold;
+}
+
+/* Conteúdo Principal */
+.spartask-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px); /* Ajusta a largura para compensar a sidebar */
+  transition: margin-left 0.3s; /* Transição suave ao abrir/fechar a sidebar */
+}
+
+/* Botão de Alternância */
+.spartask-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100; /* Garantir que o botão de alternância esteja acima da sidebar */
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+}
+/* CSS adicional para modal */
+.modal {
+  z-index: 1050;
+}
+.modal-backdrop {
+  z-index: 1040;
+}
+
+/* Limitar a largura da coluna Senha */
+.col-senha {
+  width: 10%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Em telas pequenas */
+@media (max-width: 768px) {
+  .col-senha {
+      width: 20%; /* Ajuste a porcentagem conforme necessário */
+  }
+}
+
+/* Em telas muito pequenas */
+@media (max-width: 576px) {
+  .col-senha {
+      width: 30%; /* Ajuste a porcentagem conforme necessário */
+  }
+}
+
+
+@media (max-width: 576px) {
+  .col-senha {
+      display: none;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .spartask-sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease; /* Transição suave ao abrir/fechar a sidebar */
+  }
+  .spartask-sidebar.active {
+      transform: translateX(0);
+  }
+  .spartask-content {
+      margin-left: 0;
+      width: 100%; /* Ajusta a largura para ocupar toda a área disponível */
+  }
+  .spartask-toggle-btn {
+      display: block;
+  }
+}
+
+.logo-adm {
+  width: 50px;
+}

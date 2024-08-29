@@ -1,0 +1,200 @@
+/* ===========================
+   Global Styles
+=========================== */
+.card {
+    -webkit-box-shadow: 2px 0px 19px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 0px 19px -3px rgba(0,0,0,0.75);
+    box-shadow: 2px 0px 19px -3px rgba(0,0,0,0.75);
+    height: 500px;
+}
+
+.card-body p,
+.card-body h5 {
+    color: black;
+}
+
+.home__bg {
+    filter: brightness(0.20) opacity(1.00);
+}
+
+.space-2 {
+    margin-top: 200px;
+}
+
+.logo-header {
+    width: 60px;
+}
+
+.texto-banner,
+.h1-banner-2 {
+    color: black;
+}
+
+.bg-logo {
+    background-color: black !important;
+    border-radius: 100px !important;
+}
+
+/* ===========================
+   Card Limpeza Section
+=========================== */
+.card-limpeza-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.img-limpeza {
+    width: 100px;
+}
+
+/* ===========================
+   Home Description Section
+=========================== */
+.home__description {
+    letter-spacing: 1cap;
+}
+
+/* ===========================
+   HR Limpeza Section
+=========================== */
+.hr-limpeza {
+    background: white;
+    width: 500px;
+}
+
+.div-do-hr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ===========================
+   Responsive Adjustments
+=========================== */
+@media (max-width: 880px) {
+    .home__title {
+        margin-top: 120px;
+    }
+}
+
+/* ===========================
+   Book Section
+=========================== */
+.ep-1 {
+    margin-top: 80px;
+}
+
+.book-card {
+    display: flex;
+    height: 100%;
+}
+
+.media-body {
+    font-size: 15px;
+    width: 50%;
+}
+
+.book-img {
+    width: 50%;
+}
+
+.media {
+    padding: 30px;
+}
+
+/* ===========================
+   Responsive Adjustments for Book Section
+=========================== */
+@media (max-width: 1200px) {
+    .book-img {
+        display: none;
+    }
+}
+
+@media (max-width: 770px) {
+    .book-img {
+        display: block;
+    }
+}
+
+@media (max-width: 550px) {
+    .book-img {
+        display: none;
+    }
+}
+
+/* ===========================
+   Pessoa Card Image Section
+=========================== */
+.pessoa-card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+/* ===========================
+   Book Caixa Image Section
+=========================== */
+.book-card .book-caixa-img,
+.book-caixa-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+/* ===========================
+   Card filiais (edit site)
+=========================== */
+
+.card_filiais[data-id="2"]:before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    transform: skewY(345deg);
+    background: purple;
+    transition: 0.5s;
+  }
+  .card_filiais[data-id="3"]:before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    background: none;
+    height: 100%;
+    transform: skewY(345deg);
+    transition: 0.5s;
+  }
+  .card_filiais[data-id="5"]:before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    background: rgb(0, 238, 255);
+    height: 100%;
+    transform: skewY(345deg);
+    transition: 0.5s;
+  }
+  .home__data {
+    padding: 100px;
+  }
+/* ===========================
+   Video Section
+=========================== */
+
+.video-pitch {
+    width: 70%;
+    height: 500px;
+}
+.iframe-video {
+    width: 100%;
+    height: 100%;
+
+}
