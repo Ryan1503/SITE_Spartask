@@ -152,6 +152,25 @@
    Card filiais (edit site)
 =========================== */
 
+.card_product::after{
+    content: 'SPARTASK' !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    font-size: 4.8em;
+    color: rgba(0, 0, 0, 0.1);
+  }
+  .card_filiais::after{
+    content: 'SPARTOI'  !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    font-size: 4.8em;
+    color: rgba(0, 0, 0, 0.1);
+  }
+
 .card_filiais[data-id="2"]:before{
     content: '';
     position: absolute;
