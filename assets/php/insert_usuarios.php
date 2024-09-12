@@ -1,75 +1,43 @@
 <?php
-include 'config.php'; // Inclui o arquivo de configuração para a conexão com o banco de dados
+include 'config.php';
 
-// Função para sanitizar dados de entrada
-function sanitizeInput($data) {
-    return htmlspecialchars(strip_tags(trim($data)));
-}
-
-// Verifica se os dados foram enviados pelo método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitiza e valida os dados recebidos
-    $nome = sanitizeInput($_POST['nome']);
-    $email = filter_var(sanitizeInput($_POST['email']), FILTER_VALIDATE_EMAIL);
-    $telefone = sanitizeInput($_POST['telefone']);
-    $endereco = sanitizeInput($_POST['endereco']);
-    $senha = sanitizeInput($_POST['senha']);
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $telefone = $_POST['telefone'];
+    $senha = $_POST['senha'];
 
-    // Verifica se o email é válido
-    if (!$email) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Email inválido.";
         exit();
     }
 
-    // Criptografa a senha
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+    $verificaEmail = "SELECT email FROM usuarios WHERE email = '$email'";
+    $resultado = $conexao->query($verificaEmail);
 
-    // Verifica se o email já está registrado
-    $stmt = $conexao->prepare("SELECT email FROM usuarios WHERE email = ?");
-
-    if ($stmt === false) {
-        echo "Erro na preparação da consulta: " . $conexao->error;
-        exit();
-    }
-
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
-
-    if ($stmt->num_rows > 0) {
+    if ($resultado && $resultado->num_rows > 0) {
         echo "O email já está registrado.";
-        $stmt->close();
         $conexao->close();
         exit();
     }
 
-    // Prepara a consulta SQL para inserir o usuário
-    $stmt = $conexao->prepare("INSERT INTO usuarios (email, telefone, endereco, senha, nome) VALUES (?, ?, ?, ?, ?)");
+    $sql = "INSERT INTO usuarios (id, nome, email, telefone, senha)
+            VALUES (NULL, '$nome', '$email', '$telefone', '$senha')";
 
-    if ($stmt === false) {
-        echo "Erro na preparação da consulta: " . $conexao->error;
-        exit();
-    }
-
-    // Faz o bind dos parâmetros
-    $stmt->bind_param("sssss", $email, $telefone, $endereco, $senha_hash, $nome);
-
-    // Executa a consulta
-    if ($stmt->execute()) {
-        // Inicia a sessão e faz login do usuário
+    if ($conexao->query($sql) === TRUE) {
         session_start();
         $_SESSION['loggedin'] = true;
-        $_SESSION['id'] = $conexao->insert_id; // Recupera o ID do usuário inserido
-        $_SESSION['email'] = $email;
+        $_SESSION['id'] = $conexao->insert_id;
+
 
         echo "Usuário cadastrado e logado com sucesso!";
-        header('Location: index.html');
+        echo "<div class='modal-footer'>
+                <a href='login.html' class='btn btn-primary'>Logue aqui</a>
+              </div>";
     } else {
-        echo "Erro: " . $stmt->error;
+        echo "Erro ao cadastrar o usuário: " . $conexao->error;
     }
 
-    // Fecha a declaração e a conexão
-    $stmt->close();
     $conexao->close();
 } else {
     echo "Método de requisição não permitido.";

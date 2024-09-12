@@ -31,6 +31,9 @@ if (!isset($_SESSION['autorizado']) || $_SESSION['autorizado'] !== true):
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../assets/css/admin.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+<script src="../../assets/js/admin.js"></script>
     <style>
         .modal-backdrop {
             z-index: 1040 !important;
@@ -83,6 +86,9 @@ endif;
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../assets/css/admin.css" rel="stylesheet">
+       <!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+<script src="../../assets/js/admin.js"></script>
 </head>
 <body>
 <!-- Conteúdo da página -->
@@ -90,11 +96,12 @@ endif;
     <i class="fas fa-bars"></i>
 </button>
 
+<!-- Sidebar responsiva -->
 <div class="spartask-sidebar d-flex flex-column p-3">
-    <h4 class="text-white">Spartask Admin</h4>
+    <h4 class="text-white">SparTask Admin</h4>
     <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="admin-link" href="index.php">
+    <li class="nav-item">
+            <a class="admin-link " href="index.php">
                 <i class="fas fa-home"></i>
                 Dashboard
             </a>
@@ -106,9 +113,21 @@ endif;
             </a>
         </li>
         <li class="nav-item">
-            <a class="admin-link active" href="banco.php">
+            <a class="admin-link active" href="config_banco.php">
                 <i class="fas fa-database"></i>
                 Configurações do Banco
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="admin-link" href="config_banco.php">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+              Deúncias
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="admin-link" href="config_banco.php">
+            <i class="fa-solid fa-tents"></i>
+                          Testes
             </a>
         </li>
         <li class="nav-item">
@@ -118,8 +137,12 @@ endif;
             </a>
         </li>
     </ul>
+    <div class="user-info mt-auto">
+        <a class="admin-link" href="perfil.php">
+            <i class="fas fa-user"></i> <span>Ryan de Oliveira</span>
+        </a>
+    </div>
 </div>
-
 <div class="spartask-content">
     <h1>Configurações do Banco de Dados</h1>
     <div class="card mb-4">

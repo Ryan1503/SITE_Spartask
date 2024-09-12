@@ -41,12 +41,20 @@ $(document).ready(function() {
             type: 'POST',
             data: $(this).serialize(),
             success: function(response) {
-                $('#modalMessage').html(response);
-                $('#resultModal').modal('show');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso',
+                    text: response,
+                    confirmButtonText: 'OK'
+                });
             },
             error: function(xhr, status, error) {
-                $('#modalMessage').html('Erro ao enviar os dados: ' + error);
-                $('#resultModal').modal('show');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Erro ao enviar os dados: ' + error,
+                    confirmButtonText: 'OK'
+                });
             }
         });
     });
@@ -60,13 +68,21 @@ $(document).ready(function() {
             type: 'POST',
             data: $(this).serialize(),
             success: function(response) {
-                $('#modalMessage').html(response);
-                $('#resultModal').modal('show');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sucesso',
+                    text: response,
+                    confirmButtonText: 'OK'
+                });
             },
             error: function(xhr, status, error) {
-                $('#modalMessage').html('Erro ao enviar os dados: ' + error);
-                $('#resultModal').modal('show');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro',
+                    text: 'Erro ao enviar os dados: ' + error,
+                    confirmButtonText: 'OK'
+                });
             }
         });
     });
-  });
+});

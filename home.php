@@ -1,17 +1,12 @@
 <?php
 session_start();
-if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
 
-  if ($_SESSION['id'] > 0) {
-  } else {
-    header('Location: ../../home-sem-login.php');
-    exit();
-  }
-
+if ($_SESSION['id'] > 0) {
 } else {
-  header('Location: ../../home-sem-login.php');
+  header('Location: home-sem-login.php');
   exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -26,8 +21,8 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <script src="https://spartoi.vercel.app/assets/js/script.js" defer></script>
 
   <!-- Estilo do site -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="../../assets/js/login_modal.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/login_modal.js" defer></script>
 
   <!-- Bootstrap 4.1 CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -40,13 +35,13 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- V-Libras -->
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../assets/img/spartask_logo_semfundo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/img/spartask_logo_semfundo.png" type="image/x-icon">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -64,7 +59,7 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
     crossorigin="anonymous"></script>
 
   <!-- Custom CSS -->
-  <link href="../../assets/css/admin.css" rel="stylesheet">
+  <link href="assets/css/admin.css" rel="stylesheet">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
@@ -75,8 +70,8 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
   <!-- Custom JS -->
-  <script src="../../assets/js/admin.js" defer></script>
-  <script src="../../assets/js/sair.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+  <script src="assets/js/sair_normal.js" defer></script>
   <!-- SweetAlert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -100,7 +95,7 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
 
   <div class="sidebar">
     <div class="logo-details">
-      <img class="bx bxl-c-plus-plus icon logo" src="../../assets/img/spartask_logo_semfundo.png" alt="Logo SparTask">
+      <img class=" logo" src="assets/img/spartask_logo_semfundo.png" alt="Logo SparTask">
       <div class="logo_name">SparTask</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
@@ -113,26 +108,56 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
         <span class="tooltip">Dashboard</span>
       </li>
       <li>
-        <a href="users.php">
-          <i class='bx bx-user'></i>
-          <span class="links_name">User</span>
+        <a href="#">
+          <i class='fa-solid fa-clipboard'></i>
+          <span class="links_name">Contratar</span>
         </a>
-        <span class="tooltip">User</span>
+        <span class="tooltip">Contratar</span>
       </li>
 
       <li>
         <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="links_name">Setting</span>
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Mensagens</span>
         </a>
-        <span class="tooltip">Setting</span>
+        <span class="tooltip">Mensagens</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Análise</span>
+        </a>
+        <span class="tooltip">Análise</span>
+      </li>
+
+
+      <li>
+        <a href="#">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Favoritos</span>
+        </a>
+        <span class="tooltip">Favoritos</span>
+      </li>
+      <li>
+        <a href="blog.php">
+          <i class='fa-solid fa-blog'></i>
+          <span class="links_name">Blog</span>
+        </a>
+        <span class="tooltip">Blog</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Configurações</span>
+        </a>
+        <span class="tooltip">Configurações</span>
       </li>
       <li class="profile">
         <div class="profile-details">
-          <img src="profile.jpg" alt="profileImg">
+          <i class='bx bx-user'></i>
           <div class="name_job">
             <div class="name"><?= print_r($_SESSION['nome'], true); ?></div>
-            <div class="job">Administrador</div>
+            <div class="job">Web designer</div>
           </div>
         </div>
         <i class='bx bx-log-out ' id="log_out"></i>
@@ -141,51 +166,10 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   </div>
   <!-- Home -->
   <section class="home-section">
-    <div class="text">Bem-vindo ao Spartask Admin - Dashboard</div>
+    <div class="text">Bem-vindo (a) <?= print_r($_SESSION['nome'], true) ?></div>
 
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card text-white bg-primary mb-3">
-            <div class="card-header">Usuários</div>
-            <div class="card-body">
-              <h5 class="card-title">500 Usuários Ativos</h5>
-              <p class="card-text">Visualize e gerencie todos os usuários registrados.</p>
-              <a href="users.php" class="btn btn-light">Gerenciar Usuários</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card text-white bg-warning mb-3">
-            <div class="card-header">Banco de Dados</div>
-            <div class="card-body">
-              <h5 class="card-title">Backup e Restauração</h5>
-              <p class="card-text">Configure backups automáticos e restaure dados quando necessário.</p>
-              <a href="config_banco.php" class="btn btn-light">Configurar Banco</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card text-white bg-danger mb-3">
-            <div class="card-header">Denuncias</div>
-            <div class="card-body">
-              <h5 class="card-title">500 Usuários Ativos</h5>
-              <p class="card-text">Verifique as denuncias feitas a usuarios ou prestadores de serviços.</p>
-              <a href="users.php" class="btn btn-light">Gerenciar denuncias</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card text-white bg-success mb-3">
-            <div class="card-header">Banco de Dados</div>
-            <div class="card-body">
-              <h5 class="card-title">Backup e Restauração</h5>
-              <p class="card-text">Configure backups automáticos e restaure dados quando necessário.</p>
-              <a href="config_banco.php" class="btn btn-light">Configurar Banco</a>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 

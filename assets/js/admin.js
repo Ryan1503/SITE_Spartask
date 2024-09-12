@@ -1,21 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.querySelector('.spartask-toggle-btn');
-    const sidebar = document.querySelector('.spartask-sidebar');
-    const content = document.querySelector('.spartask-content');
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
 
-    // Função para alternar a visibilidade da sidebar
-    toggleBtn.addEventListener('click', function () {
-        sidebar.classList.toggle('active');
-        content.classList.toggle('full-width');
-    });
-
-    // Alterna a classe 'active' nos links do menu ao carregar a página
-    const links = document.querySelectorAll('.admin-link');
-    links.forEach(link => {
-        if (link.href === window.location.href) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  menuBtnChange();//calling the function(optional)
 });
+
+searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+  sidebar.classList.toggle("open");
+  menuBtnChange(); //calling the function(optional)
+});
+
+// following are the code to change sidebar button(optional)
+function menuBtnChange() {
+  if (sidebar.classList.contains("open")) {
+    closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+  } else {
+    closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+  }
+}
+

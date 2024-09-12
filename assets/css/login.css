@@ -4,10 +4,49 @@
 
 body {
   font-family: 'Poppins', 'Arial', sans-serif;
-  background: url('../img/back.jpg') no-repeat center center fixed;
+  background: url('../img/fundo.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;
+}
+.img-logo-login {
+  width: 100%;
+  max-width: 200px;
+}
+.form-input {
+  height: 100%;
+  width: 90%;
+  border: none;
+  outline: none;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+
+.form-input i{
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #707070;
+left: 0;
+}
+
+input:not(:placeholder-shown) {
+  background-color: black !important;
+  color: white;
+}
+
+input:placeholder-shown {
+  background-color: black !important;
+  color: white;
+}
+.form-group {
+  padding-bottom: 10px;
+}
+.btn-login {
+  background-color: none;
+  border: 2px solid white;
+  border-radius: 5px;
 }
 
 .background-image {
@@ -24,6 +63,9 @@ body {
   display: flex;
   flex-direction: column; /* Ensure the card grows with content */
   min-height: 400px; /* Adjust this value as needed */
+  max-width: 350px;
+  background-color: black;
+  color: white;
 }
 
 .card-header {
@@ -34,6 +76,7 @@ body {
 .card-body {
   padding: 2rem;
   flex: 1; /* Allows the card body to expand */
+
 }
 
 .form-control {
@@ -104,6 +147,4 @@ body {
 .field.visible {
   opacity: 1;
 }
-.register-card {
-  min-height: 700px; /* Ajuste conforme necessário */
-}
+
