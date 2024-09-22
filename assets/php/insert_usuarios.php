@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require('base_codigo.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
@@ -31,9 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         echo "Usuário cadastrado e logado com sucesso!";
-        echo "<div class='modal-footer'>
-                <a href='login.html' class='btn btn-primary'>Logue aqui</a>
-              </div>";
+
     } else {
         echo "Erro ao cadastrar o usuário: " . $conexao->error;
     }

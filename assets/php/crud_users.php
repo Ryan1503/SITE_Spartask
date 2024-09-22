@@ -1,5 +1,5 @@
 <?php
-require('config.php');
+require('base_codigo.php');
 
 function limpar_entrada($dados)
 {

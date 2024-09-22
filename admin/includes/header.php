@@ -11,12 +11,12 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
 
   if ($_SESSION['id'] > 0) {
   } else {
-    header('Location: ../../home-sem-login.php');
+    header('Location: ../home-sem-login.php');
     exit();
   }
 
 } else {
-  header('Location: ../../home-sem-login.php');
+  header('Location: ../home-sem-login.php');
   exit();
 }
 ?>
@@ -33,8 +33,8 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <script src="https://spartoi.vercel.app/assets/js/script.js" defer></script>
 
   <!-- Estilo do site -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <script src="../../assets/js/login_modal.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/login_modal.js" defer></script>
 
   <!-- Bootstrap 4.1 CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -47,13 +47,13 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
   <!-- V-Libras -->
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="../../assets/img/spartask_logo_semfundo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/img/spartask_logo_semfundo.png" type="image/x-icon">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -68,16 +68,16 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
     crossorigin="anonymous"></script>
 
   <!-- Custom CSS -->
-  <link href="../../assets/css/admin.css" rel="stylesheet">
+  <link href="../assets/css/admin.css" rel="stylesheet">
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
   <!-- Custom JS -->
-  <script src="../../assets/js/admin.js" defer></script>
-  <script src="../../assets/js/sair.js" defer></script>
-  <script src="../../assets/js/users.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+  <script src="../assets/js/sair.js" defer></script>
+  <script src="../assets/js/users.js" defer></script>
 
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -182,115 +182,3 @@ if ($_SESSION['email'] == 'ryanocbomfim@gmail.com') {
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
-
-  <!-- Header -->
-
-
-  <div class="sidebar">
-    <div class="logo-details">
-      <img class="bx bxl-c-plus-plus icon logo" src="../../assets/img/spartask_logo_semfundo.png" alt="Logo SparTask">
-      <div class="logo_name">SparTask</div>
-      <i class='bx bx-menu' id="btn"></i>
-    </div>
-    <ul class="nav-list">
-      <li>
-        <a href="index.php">
-          <i class='bx bx-grid-alt '></i>
-          <span class="links_name ">Dashboard</span>
-        </a>
-        <span class="tooltip">Dashboard</span>
-      </li>
-      <li class="active">
-        <a href="users.php">
-          <i class='bx bx-user'></i>
-          <span class="links_name">User</span>
-        </a>
-        <span class="tooltip">User</span>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="links_name">Setting</span>
-        </a>
-        <span class="tooltip">Setting</span>
-      </li>
-      <li class="profile">
-        <div class="profile-details">
-          <img src="profile.jpg" alt="profileImg">
-          <div class="name_job">
-            <div class="name"><?= print_r($_SESSION['nome'], true); ?></div>
-            <div class="job">Administrador</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out ' id="log_out"></i>
-      </li>
-    </ul>
-  </div>
-  <!-- Home -->
-  <section class="home-section">
-
-    <h1 class="texto">Gerenciamento de Usuários</h1>
-    <br>
-    <div class="container">
-
-      <button class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">Adicionar Novo Usuário</button>
-      <br><br>
-
-
-
-      <!-- Tabela Responsiva -->
-      <div class="table-responsive">
-        <table class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th class="col-senha">Senha</th>
-              <th>Telefone</th>
-              <th>Endereço</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $sql = "SELECT * FROM usuarios";
-            $result = $conexao->query($sql);
-
-            if ($result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                ?>
-                <tr>
-                  <td><?= $row['id']; ?></td>
-                  <td><?= $row['nome']; ?></td>
-                  <td><?= $row['email']; ?></td>
-                  <td class="col-senha"><?= $row['senha']; ?></td>
-                  <td><?= $row['telefone']; ?></td>
-                  <td><?= $row['endereco']; ?></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning edit-btn" data-id="<?= $row['id']; ?>"
-                      data-nome="<?= $row['nome']; ?>" data-email="<?= $row['email']; ?>" data-senha="<?= $row['senha']; ?>"
-                      data-telefone="<?= $row['telefone']; ?>" data-endereco="<?= $row['endereco']; ?>" data-toggle="modal"
-                      data-target="#editUserModal">Editar</button>
-                    <button class="btn btn-sm btn-danger delete-btn" data-id="<?= $row['id']; ?>">Excluir</button>
-                  </td>
-                </tr>
-                <?php
-              }
-            } else {
-              echo "<tr><td colspan='7'>Nenhum registro encontrado.</td></tr>";
-            }
-            ?>
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-
-  </section>
-
-
-</body>
-
-</html>

@@ -13,7 +13,7 @@ document.getElementById('log_out').addEventListener('click', function () {
             console.log('Confirmado, enviando requisição AJAX...'); // Log para depuração
             // Realiza a chamada AJAX para sair.php
             $.ajax({
-                url: '../../assets/php/sair.php', // Caminho atualizado para o arquivo sair.php
+                url: '../assets/php/sair.php', // Caminho atualizado para o arquivo sair.php
                 type: 'GET',
                 success: function () {
                     console.log('Requisição AJAX bem-sucedida'); // Log para depuração
@@ -23,7 +23,7 @@ document.getElementById('log_out').addEventListener('click', function () {
                         'success'
                     ).then(() => {
                         // Redireciona o usuário após a confirmação
-                        window.location.href = '../../index.php';
+                        window.location.href = '/spartask/index.php';
                     });
                 },
                 error: function (xhr, status, error) {

@@ -166,6 +166,11 @@ CODIGO INSPIRADO NO VIDEO: "https://youtu.be/wEfaoAa99XY"
   background: white !important;
   color: #11101d !important;
   border-radius: 10px;
+  -webkit-transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-property: width height background-color font-size left top transform -webkit-transform color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
 }
 .active span{
   color: #11101d !important;

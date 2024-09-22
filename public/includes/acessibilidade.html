@@ -1,0 +1,170 @@
+<div class="accessibility-container">
+    <div class="accessibility-widget minimized">
+        <button id="toggle-accessibility" class="btn btn-primary btn-sm" title="Acessibilidade">
+            <i class="fas fa-universal-access"></i> Acessibilidade
+        </button>
+        <div class="accessibility-panel">
+            <h5>Acessibilidade</h5>
+            <div class="font-controls">
+                <button id="decrease-font" class="btn btn-outline-primary btn-sm" title="Diminuir Fonte">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <span id="font-size-indicator">100%</span>
+                <button id="increase-font" class="btn btn-outline-primary btn-sm" title="Aumentar Fonte">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <button id="high-contrast" class="btn btn-dark btn-sm" title="Ativar Alto Contraste">
+                <i class="fas fa-adjust"></i> Alto Contraste
+            </button>
+            <button id="reset" class="btn btn-secondary btn-sm" title="Redefinir Configurações">
+                <i class="fas fa-sync-alt"></i> Redefinir
+            </button>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <div class="vlibras-container">
+        <script src="https://vlibras.gov.br/app/vlibras.js"></script>
+          <!-- V-Libras -->
+  <div vw class="enabled bg-transparente" id="vlibras-container">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+    </div>
+</div>
+
+<style>
+    body {
+        transition: background-color 0.3s, color 0.3s, font-size 0.3s;
+    }
+
+    .accessibility-container {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 100000000000000;
+    }
+
+    .accessibility-widget {
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 60px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .accessibility-widget.expanded {
+        width: 220px;
+    }
+
+    .accessibility-panel {
+        display: none;
+    }
+
+    .accessibility-widget.expanded .accessibility-panel {
+        display: block;
+    }
+
+    .accessibility-widget h5 {
+        margin-bottom: 10px;
+    }
+
+    .accessibility-widget button {
+        width: 100%;
+        margin-bottom: 10px;
+        transition: all 0.2s ease;
+    }
+
+    .accessibility-widget .font-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .accessibility-widget #font-size-indicator {
+        font-weight: bold;
+        margin: 0 10px;
+        width: 50px;
+        text-align: center;
+    }
+
+    .high-contrast {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .vlibras-container {
+        margin-top: 10px;
+    }
+
+    .btn {
+        position: relative;
+    }
+
+    .btn i {
+        margin-right: 5px;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var fontSize = 1;
+        var fontSizeIndicator = document.getElementById("font-size-indicator");
+        var widget = document.querySelector('.accessibility-widget');
+        var toggleButton = document.getElementById('toggle-accessibility');
+
+        function updateFontSize() {
+            document.body.style.fontSize = fontSize + "em";
+            fontSizeIndicator.textContent = Math.round(fontSize * 100) + "%";
+        }
+
+        // Aumentar Fonte
+        document.getElementById("increase-font").addEventListener("click", function() {
+            if (fontSize < 1.5) {
+                fontSize += 0.1;
+                updateFontSize();
+            }
+        });
+
+        // Diminuir Fonte
+        document.getElementById("decrease-font").addEventListener("click", function() {
+            if (fontSize > 0.8) {
+                fontSize -= 0.1;
+                updateFontSize();
+            }
+        });
+
+        // Ativar Alto Contraste
+        document.getElementById("high-contrast").addEventListener("click", function() {
+            document.body.classList.toggle("high-contrast");
+        });
+
+        // Redefinir Configurações
+        document.getElementById("reset").addEventListener("click", function() {
+            fontSize = 1;
+            updateFontSize();
+            document.body.classList.remove("high-contrast");
+        });
+
+        // Toggle painel de acessibilidade
+        toggleButton.addEventListener("click", function() {
+            widget.classList.toggle('expanded');
+        });
+    });
+</script>

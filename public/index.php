@@ -23,9 +23,9 @@ if (isset($_SESSION['id'])) {
   <script src="https://spartoi.vercel.app/assets/js/script.js" defer></script>
 
   <!-- Estilo do site -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/login_modal.js" defer></script>
-  <script src="assets/js/session_check.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/login_modal.js" defer></script>
+  <script src="../assets/js/session_check.js" defer></script>
 
   <!-- Bootstrap 4.1 CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -38,13 +38,13 @@ if (isset($_SESSION['id'])) {
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
   <!-- V-Libras -->
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/img/spartask_logo_semfundo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/img/spartask_logo_semfundo.png" type="image/x-icon">
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -60,27 +60,21 @@ if (isset($_SESSION['id'])) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+    <script> (function(){ var s = document.createElement('script'); var h = document.querySelector('head') || document.body; s.src = 'https://acsbapp.com/apps/app/dist/js/app.js'; s.async = true; s.onload = function(){ acsbJS.init({ statementLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, disableBgProcess : false, language : 'en', position : 'right', leadColor : '#146FF8', triggerColor : '#146FF8', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'people', triggerSize : 'bottom', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerOffsetX : 10, triggerOffsetY : 10, triggerRadius : '20' } }); }; h.appendChild(s); })(); </script>
 </head>
 
 <body>
-  <!-- V-Libras -->
-  <div vw class="enabled bg-transparente" id="vlibras-container">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
 
+<?php
+include('includes/acessibilidade.html');
+?>
   <!-- Header -->
   <header>
     <nav class="header header-home bg-red" id="header">
       <i class="uil uil-bars abrir-subheader"></i>
       <div class="bg-logo">
         <a class="logo-A" href="#">
-          <img src="assets/img/spartask_logo_semfundo.png" class="logo-header" alt="logo">
+          <img src="../assets/img/spartask_logo_semfundo.png" class="logo-header" alt="logo">
         </a>
       </div>
       <ul class="header-links">
@@ -89,9 +83,9 @@ if (isset($_SESSION['id'])) {
         <li><a class="link-nav" data-toggle="modal" data-target="#loginModal" href="#">Serviços</a></li>
         <li><a class="link-nav" data-toggle="modal" data-target="#loginModal" href="#">Contrate</a></li>
 
-        <li><a class="link-nav" href="pages/about.html">Sobre</a></li>
-        <li><a class="link-nav" href="pages/blog.html">Blog</a></li>
-        <li><a href="pages/login.html"><button class="btn btn-outline-light">Entrar</button></a></li>
+        <li><a class="link-nav" href="about.html">Sobre</a></li>
+        <li><a class="link-nav" href="blog.html">Blog</a></li>
+        <li><a href="login.html"><button class="btn btn-outline-light">Entrar</button></a></li>
       </ul>
       <i class="uil uil-search search-icon" id="searchIcon" style="display: none;"></i>
       <div class="search-box">
@@ -103,7 +97,7 @@ if (isset($_SESSION['id'])) {
 
   <!-- Banner principal -->
   <section>
-    <img src="assets/img/back.jpg" alt="banner" class="home__bg">
+    <img src="../assets/img/back.jpg" alt="banner" class="home__bg">
     <div class="home__container container grid">
       <div class="home__data">
         <br>
@@ -124,7 +118,7 @@ if (isset($_SESSION['id'])) {
             <div class="col-md-4 mb-4">
               <div class="card card-home">
                 <div class="card-limpeza-img">
-                  <img src="assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
+                  <img src="../assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Exemplo</h5>
@@ -137,7 +131,7 @@ if (isset($_SESSION['id'])) {
             <div class="col-md-4 mb-4">
               <div class="card card-home">
                 <div class="card-limpeza-img">
-                  <img src="assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
+                  <img src="../assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Exemplo</h5>
@@ -150,7 +144,7 @@ if (isset($_SESSION['id'])) {
             <div class="col-md-4 mb-4">
               <div class="card card-home">
                 <div class="card-limpeza-img">
-                  <img src="assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
+                  <img src="../assets/img/vassoura.png" class="img-limpeza" alt="Product Image 2">
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">Exemplo</h5>
@@ -171,7 +165,7 @@ if (isset($_SESSION['id'])) {
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <img src="assets/img/cap.png" class="iframe-video" alt="" srcset="">
+      <img src="../assets/img/cap.png" class="iframe-video" alt="" srcset="">
     </div>
   </div>
   <br><br><br><br>
@@ -185,7 +179,7 @@ if (isset($_SESSION['id'])) {
         <div class="col-md-4 mb-4">
           <div class="card book-card">
             <div class="book-caixa-img">
-              <img class="card-img-top pessoa-card-img" src="assets/img/pessoa.jpg" alt="Exemplo">
+              <img class="card-img-top pessoa-card-img" src="../assets/img/pessoa.jpg" alt="Exemplo">
             </div>
             <div class="card-body">
               <h5 class="card-title">Exemplo</h5>
@@ -197,7 +191,7 @@ if (isset($_SESSION['id'])) {
         <div class="col-md-4 mb-4">
           <div class="card book-card">
             <div class="book-caixa-img">
-              <img class="card-img-top pessoa-card-img" src="assets/img/pessoa.jpg" alt="Exemplo">
+              <img class="card-img-top pessoa-card-img" src="../assets/img/pessoa.jpg" alt="Exemplo">
             </div>
             <div class="card-body">
               <h5 class="card-title">Exemplo</h5>
@@ -209,7 +203,7 @@ if (isset($_SESSION['id'])) {
         <div class="col-md-4 mb-4">
           <div class="card book-card">
             <div class="book-caixa-img">
-              <img class="card-img-top pessoa-card-img" src="assets/img/pessoa.jpg" alt="Exemplo">
+              <img class="card-img-top pessoa-card-img" src="../assets/img/pessoa.jpg" alt="Exemplo">
             </div>
             <div class="card-body">
               <h5 class="card-title">Exemplo</h5>
@@ -233,7 +227,7 @@ if (isset($_SESSION['id'])) {
             <br>
             <button class="btn btn-primary">Ver</button>
           </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
         </div>
       </div>
       <div class="col-md-6">
@@ -244,30 +238,7 @@ if (isset($_SESSION['id'])) {
             <br>
             <button class="btn btn-primary">Ver</button>
           </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="media border border-ligh">
-          <div class="media-body">
-            <h6 class="mt-0 mb-1">Objeto mídia</h6>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-            <br>
-            <button class="btn btn-primary">Ver</button>
-          </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="media border border-ligh">
-          <div class="media-body">
-            <h6 class="mt-0 mb-1">Objeto mídia</h6>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-            <br>
-            <button class="btn btn-primary">Ver</button>
-          </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
         </div>
       </div>
 
@@ -279,7 +250,7 @@ if (isset($_SESSION['id'])) {
             <br>
             <button class="btn btn-primary">Ver</button>
           </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
         </div>
       </div>
       <div class="col-md-6">
@@ -290,7 +261,30 @@ if (isset($_SESSION['id'])) {
             <br>
             <button class="btn btn-primary">Ver</button>
           </div>
-          <img class="ml-3 book-img" src="assets/img/back.jpg" alt="Imagem de exemplo genérica">
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="media border border-ligh">
+          <div class="media-body">
+            <h6 class="mt-0 mb-1">Objeto mídia</h6>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            <br>
+            <button class="btn btn-primary">Ver</button>
+          </div>
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="media border border-ligh">
+          <div class="media-body">
+            <h6 class="mt-0 mb-1">Objeto mídia</h6>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+            <br>
+            <button class="btn btn-primary">Ver</button>
+          </div>
+          <img class="ml-3 book-img" src="../assets/img/back.jpg" alt="Imagem de exemplo genérica">
         </div>
       </div>
     </div> <!-- Fim da row -->
@@ -302,7 +296,7 @@ if (isset($_SESSION['id'])) {
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="assets/img/head.png" class="img-fluid">
+          <img src="../assets/img/head.png" class="img-fluid">
         </div>
         <div class="col-md-6 d-flex">
           <div class="align-self-center">
@@ -334,7 +328,7 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="col-md-6 order-1 order-md-2">
           <div class="img-banner">
-            <img src="assets/img/back.jpg" class="img-fluid">
+            <img src="../assets/img/back.jpg" class="img-fluid">
           </div>
         </div>
       </div>
@@ -346,7 +340,7 @@ if (isset($_SESSION['id'])) {
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="assets/img/back.jpg" class="img-fluid">
+          <img src="../assets/img/back.jpg" class="img-fluid">
         </div>
         <div class="col-md-6 d-flex">
           <div class="align-self-center">
@@ -402,7 +396,7 @@ if (isset($_SESSION['id'])) {
           <p>Você precisa estar logado para acessar esta página. Clique no botão abaixo para fazer login.</p>
         </div>
         <div class="modal-footer">
-          <a href="pages/login.html" class="btn btn-primary">Fazer Login</a>
+          <a href="login.html" class="btn btn-primary">Fazer Login</a>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>

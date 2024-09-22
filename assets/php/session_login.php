@@ -1,5 +1,5 @@
 <?php
-include 'config.php'; // Inclui o arquivo de configuração para a conexão com o banco de dados
+require('base_codigo.php');
 // Inicia a sessão para o usuário
 session_start();
 
@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['senha'] = $usuario['senha'];
 
     if($_SESSION['email'] == 'ryanocbomfim@gmail.com'){
-        header('Location: ../../pages/admin/');
+        header('Location: ../../admin/');
     }else{
-        header('Location: ../../home.php');
+        header('Location: ../../user/');
         exit();
     }
     } else {

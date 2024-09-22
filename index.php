@@ -1,12 +1,11 @@
 <?php
-session_start(); // Inicia a sessão
+session_start();
 
-// Verifica se a sessão 'id' está ativa
 if ($_SESSION['id'] > 0) {
-    header('Location: home.php');
+    header('Location: user/index.php');
     exit();
 } else {
-    header('Location: home-sem-login.php');
+    header('Location: /spartask/public/index.php');
     exit();
 }
 ?>
